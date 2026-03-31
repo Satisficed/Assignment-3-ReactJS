@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
-import './App.css'
-import 'index.css';
+import { Graph } from "./components/Graph";
 
 
+export const App = () => {
+  return <QuadraticSolver />;
+};
