@@ -1,6 +1,7 @@
-import { Graph } from "./components/Graph";
+import { useState, useEffect, useRef } from "react";
+import { cubicInput } from "./components/Input";
 
 
 export const App = () => {
-  return <QuadraticSolver />;
+  return <cubicInput/>;
 };

@@ -1,0 +1,155 @@
+/* ---------------------------
+   Basic variables & base styles
+   --------------------------- */
+:root {
+  --page-bg: #ffffff;
+  --card-bg: #ffffff;
+  --green: #2f9e44;
+  --muted: #0d40a5;
+  --border: #e6f3ea;
+  --radius: 8px;
+  --padding: 12px;
+  --font-stack: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--page-bg);
+  color: #0f172a;
+  font-family: var(--font-stack);
+  line-height: 1.35;
+}
+
+/* ---------------------------
+   Layout containers
+   --------------------------- */
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: var(--padding);
+}
+
+.table {
+  max-width: 800px;
+  margin: 14px auto;
+  padding: 0 6px;
+}
+
+/* ---------------------------
+   Header / Title
+   --------------------------- */
+h1 {
+  margin: 0 0 12px;
+  color: var(--green);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+/* ---------------------------
+   Form
+   --------------------------- */
+form#cube-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  background: var(--card-bg);
+  padding: 10px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  align-items: center;
+}
+
+form#cube-form label {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-right: 6px;
+}
+
+form#cube-form input[type="number"],
+form#cube-form input[readonly] {
+  width: 92px;
+  padding: 6px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--green);
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+form#cube-form button[type="submit"] {
+  background: var(--green);
+  color: #fff;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+form#cube-form button[type="submit"]:hover {
+  background: #257b35;
+}
+
+.result-text {
+  display: inline-block;
+  margin-left: 8px;
+  color: #0f172a;
+  font-weight: 600;
+  background: transparent;
+}
+
+/* ---------------------------
+   Table
+   --------------------------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background-color: var(--green);
+  color: #fff;
+  border: 1px solid var(--border);
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+
+th {
+  background: #f0fff5;
+  color: var(--green);
+  font-weight: 600;
+}
+
+/* ---------------------------
+   Canvas / Graph
+   --------------------------- */
+canvas#graph {
+  display: block;
+  margin: 14px auto;
+  border-radius: 6px;
+  border: 5px solid var(--border);
+  background: #ffd6d6;
+  max-width: 95%;
+}
+
+/* ---------------------------
+   Responsive tweaks
+   --------------------------- */
+@media (max-width: 600px) {
+  form#cube-form {
+    gap: 8px;
+  }
+  form#cube-form input[type="number"] {
+    width: 72px;
+  }
+  th, td {
+    font-size: 0.9rem;
+    padding: 80px;
+  }
+}

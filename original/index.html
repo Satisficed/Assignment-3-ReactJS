@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cubic Solver</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="container">
+      <h1><i>Cubic Solver</i></h1>
+      <form id="cube-form">
+        <label for="a"> a-value: </label>
+        <input type="number" id="a" name="a" required />
+        <label for="b"> b-value: </label>
+        <input type="number" id="b" name="b" required />
+        <label for="c"> c-value: </label>
+        <input type="number" id="c" name="c" required />
+        <label for="d"> d-value: </label>
+        <input type="number" id="d" name="d" required />
+        <button type="submit">Solve Cubic</button>
+        <label for="result">Cubic Equation: </label>
+        <span id="result" class="result-text">—</span>
+      </form>
+    </header>
+
+    <section class="table">
+      <table>
+        <tr>
+          <th>p</th>
+          <td id="p" class="ZeroIsA">n/a</td>
+        </tr>
+        <tr>
+          <th>q</th>
+          <td id="q" class="ZeroIsA">n/a</td>
+        </tr>
+        <tr>
+          <th>Discriminant</th>
+          <td id="Discriminant" class="ZeroIsA">n/a</td>
+        </tr>
+        <tr>
+          <th>Value</th>
+          <th>x</th>
+          <th>y</th>
+        </tr>
+        <tr>
+          <th>Root 1</th>
+          <td id="x1" class="ZeroIsA">n/a</td>
+          <td id="y1" class="ZeroIsA">n/a</td>
+        </tr>
+        <tr>
+          <th>Root 2</th>
+          <td id="x2" class="ZeroIsA">n/a</td>
+          <td id="y2" class="ZeroIsA">n/a</td>
+        </tr>
+        <tr>
+          <th>Root 3</th>
+          <td id="x3" class="ZeroIsA">n/a</td>
+          <td id="y3" class="ZeroIsA">n/a</td>
+        </tr>
+      </table>
+    </section>
+
+    <canvas id="graph" width="600" height="600"></canvas>
+
+    <script src="main.ts"></script>
+  </body>
+</html>
