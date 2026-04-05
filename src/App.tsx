@@ -1,5 +1,6 @@
 import { CubicInput } from "./components/CubicInput.tsx";
 import { CubicEquation } from "./components/CubicEquation.tsx";
+import { CubicGraph } from "./components/CubicGraph.tsx";
 
 export const App = () => {
   return (

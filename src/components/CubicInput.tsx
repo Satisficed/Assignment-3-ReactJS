@@ -1,68 +1,7 @@
-import { useState, useRef } from "react";
+import { useCubicSolver } from "../hooks/CubicSolver";
 
 export const CubicInput = () => {
-  console.log("Running Input.tsx");
-
-  const [a, setA] = useState<number>(0);
-  const [b, setB] = useState<number>(0);
-  const [c, setC] = useState<number>(0);
-  const [d, setD] = useState<number>(0);
-  const inputRef = useRef<HTMLInputElement | null>(null);
-
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-
-
-    if (inputRef.current) {
-      const p = (3 * a * c - b ** 2) / (3 * a ** 2);
-      const q = (27 * a ** 2 * d - 9 * a * b * c + 2 * b ** 3) / (27 * a ** 3);
-      const h = -b / (3 * a);
-      const discriminant = (q / 2) ** 2 + (p / 3) ** 3;
-
-      if (discriminant > 0) {
-        console.log("Case 2: 1 Real Root, 2 Complex Roots");
-        const u = Math.cbrt(
-          -q / 2 + Math.sqrt(Math.abs((q / 2) ** 2 + (p / 3) ** 3)),
-        );
-        const v = Math.cbrt(
-          -q / 2 - Math.sqrt(Math.abs((q / 2) ** 2 + (p / 3) ** 3)),
-        );
-        const x1 = u + v + h;
-        inputRef.current.value = `1 Real Root: ${x1}`;
-      } else if (discriminant < 0) {
-        console.log("Case 1: 3 Real Roots");
-        const k = 2 * Math.sqrt(-p / 3);
-        const theta =
-          (1 / 3) * Math.acos(-q / (2 * Math.sqrt(-Math.pow(p / 3, 3))));
-        const x1 = k * Math.cos(theta) + h;
-        const x2 = k * Math.cos(theta + (2 * Math.PI) / 3) + h;
-        const x3 = k * Math.cos(theta + (4 * Math.PI) / 3) + h;
-      } else {
-        if (p === 0 && q === 0) {
-          console.log("Case 3: Triple Roots");
-          const u = Math.cbrt(
-            -q / 2 + Math.sqrt(Math.abs((q / 2) ** 2 + (p / 3) ** 3)),
-          );
-          const v = Math.cbrt(
-            -q / 2 - Math.sqrt(Math.abs((q / 2) ** 2 + (p / 3) ** 3)),
-          );
-          const x1 = u + v + h;
-        } else if (p != 0) {
-          console.log("Case 4: 1 Real Root, Double Roots");
-          const u = Math.cbrt(
-            -q / 2 + Math.sqrt(Math.abs((q / 2) ** 2 + (p / 3) ** 3)),
-          );
-          const v = Math.cbrt(
-            -q / 2 - Math.sqrt(Math.abs((q / 2) ** 2 + (p / 3) ** 3)),
-          );
-          const x1 = u + v + h;
-          const x2 = Math.cbrt(q / 2) + h;
-        } else {
-          console.log("Case 5: Unexpected Result");
-        }
-      }
-    }
-  };
+  const { a, setA, b, setB, c, setC, d, setD, result, handleSubmit } = useCubicSolver();
 
   return (
     <form onSubmit={handleSubmit}>
@@ -95,10 +34,8 @@ export const CubicInput = () => {
         required
       />
       <label>Result: </label>
-      <input ref={inputRef} type="text" readOnly />
-      <button type="submit" value="Calulate ">
-        Save Cubic
-      </button>
+      <input type="text" value={result} readOnly />
+      <button type="submit">Save Cubic</button>
     </form>
   );
 };
