@@ -1,5 +1,6 @@
 import { CubicInput } from "./components/CubicInput.tsx";
 import { CubicEquation } from "./components/CubicEquation.tsx";
+import { CubicTable } from "./components/CubicTable.tsx";
 import { CubicGraph } from "./components/CubicGraph.tsx";
 
 export const App = () => {
@@ -10,6 +11,8 @@ export const App = () => {
       </h1>
       <CubicInput />
       <CubicEquation />
+      <CubicTable />
+      <CubicGraph />
     </>
   );
 };

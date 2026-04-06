@@ -1,23 +1,28 @@
+import { useCubicSolver } from "../hooks/CubicSolver";
+
+
 export const CubicTable = () => {
+  const { p, q, discriminant, x1, x2, x3, y1, y2, y3 } = useCubicSolver();
+
   return (
     <section className="table">
       <table>
         <tr>
           <th>p</th>
-          <td id="p" className="ZeroIsA">
-            n/a
+          <td className="ZeroIsA">
+            {p}
           </td>
         </tr>
         <tr>
           <th>q</th>
-          <td id="q" className="ZeroIsA">
-            n/a
+          <td className="ZeroIsA">
+            {q}
           </td>
         </tr>
         <tr>
           <th>Discriminant</th>
-          <td id="Discriminant" className="ZeroIsA">
-            n/a
+          <td className="ZeroIsA">
+            {discriminant}
           </td>
         </tr>
         <tr>
@@ -27,29 +32,29 @@ export const CubicTable = () => {
         </tr>
         <tr>
           <th>Root 1</th>
-          <td id="x1" className="ZeroIsA">
-            n/a
+          <td className="ZeroIsA">
+            {x1}
           </td>
-          <td id="y1" className="ZeroIsA">
-            n/a
+          <td className="ZeroIsA">
+            {y1}
           </td>
         </tr>
         <tr>
           <th>Root 2</th>
-          <td id="x2" className="ZeroIsA">
-            n/a
+          <td className="ZeroIsA">
+            {x2}
           </td>
-          <td id="y2" className="ZeroIsA">
-            n/a
+          <td className="ZeroIsA">
+            {y2}
           </td>
         </tr>
         <tr>
           <th>Root 3</th>
-          <td id="x3" className="ZeroIsA">
-            n/a
+          <td className="ZeroIsA">
+            {x3}
           </td>
-          <td id="y3" className="ZeroIsA">
-            n/a
+          <td className="ZeroIsA">
+            {y3}
           </td>
         </tr>
       </table>

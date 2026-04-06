@@ -1,17 +1,27 @@
 import { useState } from "react";
 
-export const useCubicSolver = () => {
+export const    useCubicSolver = () => {
   const [a, setA] = useState(0);
   const [b, setB] = useState(0);
   const [c, setC] = useState(0);
   const [d, setD] = useState(0);
   const [result, setResult] = useState("");
+  const p = (3 * a * c - b ** 2) / (3 * a ** 2);
+  const q = (27 * a ** 2 * d - 9 * a * b * c + 2 * b ** 3) / (27 * a ** 3);
+  const h = -b / (3 * a);
+  const discriminant = (q / 2) ** 2 + (p / 3) ** 3;
+  let x1: number | string = "n/a";
+  let x2: number | string = "n/a";
+  let x3: number | string = "n/a";
+  let y1: number | string = "n/a";
+  let y2: number | string = "n/a";
+  let y3: number | string = "n/a";
 
   const solveCubic = () => {
-    const p = (3 * a * c - b ** 2) / (3 * a ** 2);
-    const q = (27 * a ** 2 * d - 9 * a * b * c + 2 * b ** 3) / (27 * a ** 3);
-    const h = -b / (3 * a);
-    const discriminant = (q / 2) ** 2 + (p / 3) ** 3;
+    if (a === 0) {
+      console.log("Case 0: a-value is zero");
+      return `A is Zero, Not a Cubic`;
+    }
 
     if (discriminant > 0) {
       console.log("Case 2: 1 Real Root, 2 Complex Roots");
@@ -57,13 +67,12 @@ export const useCubicSolver = () => {
       } else {
         return "Case 5: Unexpected Result";
       }
-
     }
   };
-      const handleSubmit = (event: React.FormEvent) => {
-        event.preventDefault();
-        const solution = solveCubic();
-        setResult(solution);
-      };
-  return { a, setA, b, setB, c, setC, d, setD, result, handleSubmit };
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    const solution = solveCubic();
+    setResult(solution);
+  };
+  return { a, b, c, d, p, q, discriminant, x1, x2, x3, y1, y2, y3, setA, setB, setC, setD, result, handleSubmit };
 };
