@@ -1,7 +1,11 @@
-import { useCubicSolver } from "../hooks/CubicSolver";
+type CubicEquationProps = {
+  a: number;
+  b: number;
+  c: number;
+  d: number;
+};
 
-export const CubicEquation = () => {
-  const { a, b, c, d } = useCubicSolver();
+export const CubicEquation = ({ a, b, c, d }: CubicEquationProps) => {
 
   return (
     console.log(`Cubic Equation: ${a}x^3 + ${b}x^2 + ${c}x + ${d}`),

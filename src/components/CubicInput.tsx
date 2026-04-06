@@ -1,7 +1,19 @@
-import { useCubicSolver } from "../hooks/CubicSolver";
+import type { Dispatch, SetStateAction } from "react";
 
-export const CubicInput = () => {
-  const { a, setA, b, setB, c, setC, d, setD, result, handleSubmit } = useCubicSolver();
+type CubicInputProps = {
+  a: number;
+  setA: Dispatch<SetStateAction<number>>;
+  b: number;
+  setB: Dispatch<SetStateAction<number>>;
+  c: number;
+  setC: Dispatch<SetStateAction<number>>;
+  d: number;
+  setD: Dispatch<SetStateAction<number>>;
+  result: string;
+  handleSubmit: (event: React.FormEvent) => void;
+};
+
+export const CubicInput = ({ a, setA, b, setB, c, setC, d, setD, result, handleSubmit }: CubicInputProps) => {
 
   return (
     <form onSubmit={handleSubmit}>
