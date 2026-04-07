@@ -1,14 +1,14 @@
 import type { Dispatch, SetStateAction } from "react";
 
 type CubicInputProps = {
-  a: number;
-  setA: Dispatch<SetStateAction<number>>;
-  b: number;
-  setB: Dispatch<SetStateAction<number>>;
-  c: number;
-  setC: Dispatch<SetStateAction<number>>;
-  d: number;
-  setD: Dispatch<SetStateAction<number>>;
+  a: number | null;
+  setA: Dispatch<SetStateAction<number | null>>;
+  b: number | null;
+  setB: Dispatch<SetStateAction<number | null>>;
+  c: number | null;
+  setC: Dispatch<SetStateAction<number | null>>;
+  d: number | null;
+  setD: Dispatch<SetStateAction<number | null>>;
   result: string;
   handleSubmit: (event: React.FormEvent) => void;
 };
@@ -20,30 +20,26 @@ export const CubicInput = ({ a, setA, b, setB, c, setC, d, setD, result, handleS
       <label> a-value: </label>
       <input
         type="number"
-        value={a}
-        onChange={(e) => setA(Number(e.target.value))}
-        required
+        value={a ?? ""}
+        onChange={(e) => setA(e.target.value === "" ? null : Number(e.target.value))}
       />
       <label> b-value: </label>
       <input
         type="number"
-        value={b}
-        onChange={(e) => setB(Number(e.target.value))}
-        required
+        value={b ?? ""}
+        onChange={(e) => setB(e.target.value === "" ? null : Number(e.target.value))}
       />
       <label> c-value: </label>
       <input
         type="number"
-        value={c}
-        onChange={(e) => setC(Number(e.target.value))}
-        required
+        value={c ?? ""}
+        onChange={(e) => setC(e.target.value === "" ? null : Number(e.target.value))}
       />
       <label> d-value: </label>
       <input
         type="number"
-        value={d}
-        onChange={(e) => setD(Number(e.target.value))}
-        required
+        value={d ?? ""}
+        onChange={(e) => setD(e.target.value === "" ? null : Number(e.target.value))}
       />
       <label>Result: </label>
       <input type="text" value={result} readOnly />

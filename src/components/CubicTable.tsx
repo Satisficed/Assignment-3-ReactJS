@@ -19,6 +19,7 @@ export const CubicTable = ({
   y2: number | string;
   y3: number | string;
 }) => {
+
   return (
     <section
       className="table"
@@ -60,4 +61,5 @@ export const CubicTable = ({
       </table>
     </section>
   );
+  
 };

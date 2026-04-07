@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 
 export const useCubicSolver = () => {
   // Input coefficients for the cubic equation ax^3 + bx^2 + cx + d = 0
-  const [a, setA] = useState(0);
-  const [b, setB] = useState(0);
-  const [c, setC] = useState(0);
-  const [d, setD] = useState(0);
+  const [a, setA] = useState<number | null>(null);
+  const [b, setB] = useState<number | null>(null);
+  const [c, setC] = useState<number | null>(null);
+  const [d, setD] = useState<number | null>(null);
 
   // Text summary shown in the UI
   const [result, setResult] = useState("");
@@ -16,17 +16,21 @@ export const useCubicSolver = () => {
   const [discriminant, setDiscriminant] = useState(0);
 
   // Calculated roots and their corresponding y-values for display
-  const [x1, setX1] = useState<number | string>("n/a");
-  const [x2, setX2] = useState<number | string>("n/a");
-  const [x3, setX3] = useState<number | string>("n/a");
-  const [y1, setY1] = useState<number | string>("n/a");
-  const [y2, setY2] = useState<number | string>("n/a");
-  const [y3, setY3] = useState<number | string>("n/a");
+  const [x1, setX1] = useState<number | string>("n/a ");
+  const [x2, setX2] = useState<number | string>("n/a ");
+  const [x3, setX3] = useState<number | string>("n/a ");
+  const [y1, setY1] = useState<number | string>("n/a ");
+  const [y2, setY2] = useState<number | string>("n/a ");
+  const [y3, setY3] = useState<number | string>("n/a ");
 
   // Recalculate whenever a, b, c, or d changes.
   // This keeps the table and result text in sync with inputs.
   useEffect(() => {
-    if (a === 0) {
+    if (a == null || b == null || c == null || d == null) {
+      setP(0);
+      setQ(0);
+      setDiscriminant(0);
+    } else if (a === 0) {
       // Not a cubic equation when a is zero.
       setP(0);
       setQ(0);
@@ -47,14 +51,24 @@ export const useCubicSolver = () => {
 
   // Solve the cubic equation using Cardano-style formulas.
   function solveCubic() {
+    if (a == null || b == null || c == null || d == null) {
+      setX1("n/a ");
+      setX2("n/a ");
+      setX3("n/a ");
+      setY1("n/a ");
+      setY2("n/a ");
+      setY3("n/a ");
+      return "Please fill in all values";
+    }
+
     if (a === 0) {
       console.log("Case 0: a-value is zero");
-      setX1("n/a");
-      setX2("n/a");
-      setX3("n/a");
-      setY1("n/a");
-      setY2("n/a");
-      setY3("n/a");
+      setX1("n/a ");
+      setX2("n/a ");
+      setX3("n/a ");
+      setY1("n/a ");
+      setY2("n/a ");
+      setY3("n/a ");
       return `A is Zero, Not a Cubic`;
     }
 
