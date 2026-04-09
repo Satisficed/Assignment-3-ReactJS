@@ -1,4 +1,5 @@
 import { useRef, useEffect } from "react";
+import { useCubicSolver } from "../hooks/CubicSolver.ts";
 
 type CubicGraphProps = {
   a: number;

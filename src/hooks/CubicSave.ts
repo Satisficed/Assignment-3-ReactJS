@@ -14,5 +14,9 @@ type HistoryEntry = {
   
 };
 
-
+export const useHistory = () => {
+  const [history, setHistory] = useState<HistoryEntry[]>([]);
 }
+
+
+
