@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+/* import { useState, useEffect } from "react";
 
 type SaveCubic = {
     a: number;
@@ -47,4 +47,5 @@ export const CubicHistory = (solver: SaveCubic) => {
     );
 }
 
+*/
 

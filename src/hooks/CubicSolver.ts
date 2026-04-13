@@ -76,7 +76,7 @@ export const useCubicSolver = () => {
     const calcP = (3 * a * c - b ** 2) / (3 * a ** 2);
     const calcQ =
       (27 * a ** 2 * d - 9 * a * b * c + 2 * b ** 3) / (27 * a ** 3);
-    const h = -b / (3 * a); // shift to remove x^2 term
+    const h = -b / (3 * a); 
     const calcDiscriminant = (calcQ / 2) ** 2 + (calcP / 3) ** 3;
 
     if (calcDiscriminant > 0) {

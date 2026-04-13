@@ -2,10 +2,10 @@ import { useRef, useEffect } from "react";
 import { useCubicSolver } from "../hooks/CubicSolver.ts";
 
 type CubicGraphProps = {
-  a: number;
-  b: number;
-  c: number;
-  d: number;
+  a: number | null;
+  b: number | null;
+  c: number | null;
+  d: number | null;
   x1?: number | string;
   x2?: number | string;
   x3?: number | string;
@@ -41,6 +41,8 @@ export const CubicGraph = ({ a, b, c, d, x1, x2, x3 }: CubicGraphProps) => {
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
+    if (a == null || b == null || c == null || d == null) return;
+
     // Cubic Equation line
     ctx.strokeStyle = "darkblue";
     ctx.lineWidth = 3;
@@ -48,10 +50,10 @@ export const CubicGraph = ({ a, b, c, d, x1, x2, x3 }: CubicGraphProps) => {
     for (let i = 0; i <= canvas.width; i++) {
       const j =
         canvas.height / 2 -
-        (a * ((i - canvas.width / 2) / 20) ** 3 +
-          b * ((i - canvas.width / 2) / 20) ** 2 +
-          c * ((i - canvas.width / 2) / 20) +
-          d) *
+        (a! * ((i - canvas.width / 2) / 20) ** 3 +
+          b! * ((i - canvas.width / 2) / 20) ** 2 +
+          c! * ((i - canvas.width / 2) / 20) +
+          d!) *
           20;
       ctx.lineTo(i, j);
     }

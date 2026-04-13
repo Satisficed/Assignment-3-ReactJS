@@ -1,8 +1,6 @@
-import { useState, useEffect, useRef, useMemo } from "react";
 import { CubicInput } from "./components/CubicInput.tsx";
 import { CubicEquation } from "./components/CubicEquation.tsx";
 import { CubicTable } from "./components/CubicTable.tsx";
-import { CubicHistory } from "./components/CubicHistory.tsx";
 import { CubicGraph } from "./components/CubicGraph.tsx";
 import { useCubicSolver } from "./hooks/CubicSolver";
 
@@ -15,24 +13,42 @@ export const App = () => {
         <header className="max-w-4xl mx-auto mb-6">
           <h1 className="text-3xl font-semibold italic">Cubic Solver</h1>
         </header>
-        <main className="max-w-4xl mx-auto grid gap-6 md:grid-cols-2">
+        <main className="min-h-screen bg-gray-50 text-gray-800 p-6">
           <section className="space-y-4">
             <div className="bg-white p-4 rounded-lg shadow">
-              <CubicInput {...solver} />
+              <CubicInput
+                a={solver.a}
+                setA={solver.setA}
+                b={solver.b}
+                setB={solver.setB}
+                c={solver.c}
+                setC={solver.setC}
+                d={solver.d}
+                setD={solver.setD}
+                result={solver.result}
+                handleSubmit={solver.handleSubmit}
+              />
             </div>
             <div className="bg-white p-4 rounded-lg shadow">
-              <CubicEquation {...solver} />
+              <CubicEquation />
             </div>
             <div className="bg-white p-4 rounded-lg shadow">
-              <CubicHistory {...solver} />
+              <CubicHistory />
             </div>
           </section>
           <section className="space-y-4">
             <div className="bg-white p-4 rounded-lg shadow">
-              <CubicTable {...solver} />
+              <CubicTable a={solver.a} b={solver.b} c={solver.c} d={solver.d} />
             </div>
             <div className="bg-white p-4 rounded-lg shadow h-72">
-              <CubicGraph {...solver} />
+              <CubicGraph           
+          a={solver.a}
+          b={solver.b}
+          c={solver.c}
+          d={solver.d}
+          x1={solver.x1}
+          x2={solver.x2}
+          x3={solver.x3}/>
             </div>
           </section>
         </main>
