@@ -1,4 +1,4 @@
-/* import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 type SaveCubic = {
     a: number;
@@ -7,10 +7,10 @@ type SaveCubic = {
     d: number;
 };
 
-import { useHistory } from "../hooks/CubicSave.ts";
+
 
 export const CubicHistory = (solver: SaveCubic) => {
-    const { history, add } = useHistory();
+   const { history, add } = useHistory();
 
     useEffect(() => {
             add({
@@ -47,5 +47,4 @@ export const CubicHistory = (solver: SaveCubic) => {
     );
 }
 
-*/
 

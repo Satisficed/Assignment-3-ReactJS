@@ -9,9 +9,8 @@ export const App = () => {
 
   return (
     <>
-      <div className="min-h-screen bg-gray-50 text-gray-800 p-6">
         <header className="max-w-4xl mx-auto mb-6">
-          <h1 className="text-3xl font-semibold italic">Cubic Solver</h1>
+          <h1 className="text-3xl font-semibold italic"> Cubic Solver </h1>
         </header>
         <main className="min-h-screen bg-gray-50 text-gray-800 p-6">
           <section className="space-y-4">
@@ -33,7 +32,7 @@ export const App = () => {
               <CubicEquation />
             </div>
             <div className="bg-white p-4 rounded-lg shadow">
-              <CubicHistory />
+              <CubicHistory {...solver} />
             </div>
           </section>
           <section className="space-y-4">
@@ -52,7 +51,6 @@ export const App = () => {
             </div>
           </section>
         </main>
-      </div>
     </>
   );
 };
