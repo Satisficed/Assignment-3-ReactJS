@@ -9,9 +9,9 @@ export const CubicTable = ({
   y2,
   y3,
 }: {
-  p: number;
-  q: number;
-  discriminant: number;
+  p: number | string;
+  q: number | string;
+  discriminant: number | string;
   x1: number | string;
   x2: number | string;
   x3: number | string;
@@ -20,10 +20,12 @@ export const CubicTable = ({
   y3: number | string;
 }) => {
 
+  console.log(p, q, discriminant, x1, x2, x3, y1, y2, y3);
+
   return (
     <section
       className="table"
-      style={{ display: "flex", justifyContent: "space-between" }}
+      style={{ display: "grid", justifyContent: "space-between" }}
     >
       <table>
         <tr>

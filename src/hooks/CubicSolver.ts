@@ -10,18 +10,18 @@ export const useCubicSolver = () => {
   // Text summary shown in the UI
   const [result, setResult] = useState("");
 
-  // Depressed cubic coefficients and discriminant for root classification
+  // Depressed cubic coefficients and discriminant 
   const [p, setP] = useState(0);
   const [q, setQ] = useState(0);
   const [discriminant, setDiscriminant] = useState(0);
 
-  // Calculated roots and their corresponding y-values for display
-  const [x1, setX1] = useState<number | string>("n/a ");
-  const [x2, setX2] = useState<number | string>("n/a ");
-  const [x3, setX3] = useState<number | string>("n/a ");
-  const [y1, setY1] = useState<number | string>("n/a ");
-  const [y2, setY2] = useState<number | string>("n/a ");
-  const [y3, setY3] = useState<number | string>("n/a ");
+  // Calculated roots and y-values for display
+  const [x1, setX1] = useState<number | string>("n/a");
+  const [x2, setX2] = useState<number | string>("n/a");
+  const [x3, setX3] = useState<number | string>("n/a");
+  const [y1, setY1] = useState<number | string>("n/a");
+  const [y2, setY2] = useState<number | string>("n/a");
+  const [y3, setY3] = useState<number | string>("n/a");
 
   // Recalculate whenever a, b, c, or d changes.
   // This keeps the table and result text in sync with inputs.
@@ -52,24 +52,24 @@ export const useCubicSolver = () => {
   // Solve the cubic equation using Cardano-style formulas.
   function solveCubic() {
     if (a == null || b == null || c == null || d == null) {
-      setX1("n/a ");
-      setX2("n/a ");
-      setX3("n/a ");
-      setY1("n/a ");
-      setY2("n/a ");
-      setY3("n/a ");
+      setX1("n/a");
+      setX2("n/a");
+      setX3("n/a");
+      setY1("n/a");
+      setY2("n/a");
+      setY3("n/a");
       return "Please fill in all values";
     }
 
     if (a === 0) {
       console.log("Case 0: a-value is zero");
-      setX1("n/a ");
-      setX2("n/a ");
-      setX3("n/a ");
-      setY1("n/a ");
-      setY2("n/a ");
-      setY3("n/a ");
-      return `A is Zero, Not a Cubic`;
+      setX1("n/a");
+      setX2("n/a");
+      setX3("n/a");
+      setY1("n/a");
+      setY2("n/a");
+      setY3("n/a");
+      return "A is Zero, Not a Cubic";
     }
 
     // Depressed cubic parameters
@@ -92,10 +92,10 @@ export const useCubicSolver = () => {
       setX1(root1);
       setX2("n/a");
       setX3("n/a");
-      setY1(a * root1 ** 3 + b * root1 ** 2 + c * root1 + d);
+      setY1(0);
       setY2("n/a");
       setY3("n/a");
-      return `1 Real Root: ${root1}`;
+      return "1 Real and 2 Complex Roots";
     } else if (calcDiscriminant < 0) {
       // Three distinct real roots.
       console.log("Case 1: 3 Real Roots");
@@ -108,10 +108,10 @@ export const useCubicSolver = () => {
       setX1(root1);
       setX2(root2);
       setX3(root3);
-      setY1(a * root1 ** 3 + b * root1 ** 2 + c * root1 + d);
-      setY2(a * root2 ** 3 + b * root2 ** 2 + c * root2 + d);
-      setY3(a * root3 ** 3 + b * root3 ** 2 + c * root3 + d);
-      return `3 Real Roots: ${root1}, ${root2}, ${root3}`;
+      setY1(0);
+      setY2(0);
+      setY3(0);
+      return "3 Real Roots";
     } else {
       // Discriminant is exactly zero, so there are repeated roots.
       if (calcP === 0 && calcQ === 0) {
@@ -130,7 +130,7 @@ export const useCubicSolver = () => {
         setY1(a * root1 ** 3 + b * root1 ** 2 + c * root1 + d);
         setY2(a * root1 ** 3 + b * root1 ** 2 + c * root1 + d);
         setY3(a * root1 ** 3 + b * root1 ** 2 + c * root1 + d);
-        return `Triple Root: ${root1}`;
+        return "Triple Root";
       } else if (calcP !== 0) {
         // One single root and one double root.
         console.log("Case 4: 1 Real Root, Double Roots");
@@ -148,7 +148,7 @@ export const useCubicSolver = () => {
         setY1(a * root1 ** 3 + b * root1 ** 2 + c * root1 + d);
         setY2(a * root2 ** 3 + b * root2 ** 2 + c * root2 + d);
         setY3(a * root2 ** 3 + b * root2 ** 2 + c * root2 + d);
-        return `1 Real Root: ${root1}, Double Root: ${root2}`;
+        return "1 Real and Double Root";
       } else {
         setX1("n/a");
         setX2("n/a");
@@ -156,7 +156,7 @@ export const useCubicSolver = () => {
         setY1("n/a");
         setY2("n/a");
         setY3("n/a");
-        return "Case 5: Unexpected Result";
+        return "Unexpected Result";
       }
     }
   }

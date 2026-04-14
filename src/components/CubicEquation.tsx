@@ -9,13 +9,17 @@ type CubicEquationProps = {
 
 export const CubicEquation = ({ a, b, c, d }: CubicEquationProps) => {
   const equation = useMemo(() => {
-    const showTerm = (value: number | null): value is number => value != null && value !== 0;
-    let parts: string[] = [];
-    if (showTerm(a)) parts.push(`${a}x³`);
-    if (showTerm(b)) parts.push(`${b > 0 && parts.length > 0 ? " + " : b < 0 ? " - " : ""}${Math.abs(b)}x²`);
-    if (showTerm(c)) parts.push(`${c > 0 && parts.length > 0 ? " + " : c < 0 ? " - " : ""}${Math.abs(c)}x`);
-    if (showTerm(d)) parts.push(`${d > 0 && parts.length > 0 ? " + " : d < 0 ? " - " : ""}${Math.abs(d)}`);
-    return parts.length > 0 ? parts.join("") : "Incomplete equation";
+    
+    // If input values are zero or null, don't push to array string.
+    const showTerm = (value: number | null): value is number => value !== 0 && value !== null;
+
+    let term: string[] = [];
+    if (showTerm(a)) term.push(`${a}x³`);
+    if (showTerm(b)) term.push(`${b > 0 && term.length > 0 ? " + " : b < 0 ? " - " : ""}${Math.abs(b)}x²`);
+    if (showTerm(c)) term.push(`${c > 0 && term.length > 0 ? " + " : c < 0 ? " - " : ""}${Math.abs(c)}x`);
+    if (showTerm(d)) term.push(`${d > 0 && term.length > 0 ? " + " : d < 0 ? " - " : ""}${Math.abs(d)}`);
+    return term.length > 0 ? term.join("") : "Please fill in all values";
+    
   }, [a, b, c, d]);
 
   return (
