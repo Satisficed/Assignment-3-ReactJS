@@ -18,7 +18,7 @@ export const CubicEquation = ({ a, b, c, d }: CubicEquationProps) => {
     if (showTerm(b)) term.push(`${b > 0 && term.length > 0 ? " + " : b < 0 ? " - " : ""}${Math.abs(b)}x²`);
     if (showTerm(c)) term.push(`${c > 0 && term.length > 0 ? " + " : c < 0 ? " - " : ""}${Math.abs(c)}x`);
     if (showTerm(d)) term.push(`${d > 0 && term.length > 0 ? " + " : d < 0 ? " - " : ""}${Math.abs(d)}`);
-    return term.length > 0 ? term.join("") : "Please fill in all values";
+    return term.length > 0 ? term.join("") : "No Equation";
     
   }, [a, b, c, d]);
 
