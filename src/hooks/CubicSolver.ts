@@ -45,8 +45,9 @@ export const useCubicSolver = () => {
       setDiscriminant(calcDiscriminant);
     }
 
-    const res = solveCubic();
-    setResult(res);
+    const result = solveCubic();
+    
+    setResult(result);
   }, [a, b, c, d]);
 
   // Solve the cubic equation using Cardano-style formulas.

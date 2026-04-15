@@ -14,10 +14,19 @@ export type CubicInputProps = {
   handleSubmit: (event: React.FormEvent) => void;
 };
 
-
-
-export const CubicInput = ({ a, setA, b, setB, c, setC, d, setD, result, handleSubmit }: CubicInputProps) => {
-
+export const CubicInput = ({
+  a,
+  setA,
+  b,
+  setB,
+  c,
+  setC,
+  d,
+  setD,
+  result,
+  handleSubmit,
+}: CubicInputProps) => {
+  
   const allFilled = a !== null && b !== null && c !== null && d !== null;
 
   return (
@@ -26,29 +35,39 @@ export const CubicInput = ({ a, setA, b, setB, c, setC, d, setD, result, handleS
       <input
         type="number"
         value={a ?? ""}
-        onChange={(e) => setA(e.target.value === "" ? null : Number(e.target.value))}
+        onChange={(e) =>
+          setA(e.target.value === "" ? null : Number(e.target.value))
+        }
       />
       <label> b-value: </label>
       <input
         type="number"
         value={b ?? ""}
-        onChange={(e) => setB(e.target.value === "" ? null : Number(e.target.value))}
+        onChange={(e) =>
+          setB(e.target.value === "" ? null : Number(e.target.value))
+        }
       />
       <label> c-value: </label>
       <input
         type="number"
         value={c ?? ""}
-        onChange={(e) => setC(e.target.value === "" ? null : Number(e.target.value))}
+        onChange={(e) =>
+          setC(e.target.value === "" ? null : Number(e.target.value))
+        }
       />
       <label> d-value: </label>
       <input
         type="number"
         value={d ?? ""}
-        onChange={(e) => setD(e.target.value === "" ? null : Number(e.target.value))}
+        onChange={(e) =>
+          setD(e.target.value === "" ? null : Number(e.target.value))
+        }
       />
       <label>Result: </label>
       <input type="text" value={result} readOnly />
-      <button type="submit" disabled={!allFilled}>Save Cubic</button>
+      <button type="submit" disabled={!allFilled}>
+        Save Cubic
+      </button>
     </form>
   );
 };

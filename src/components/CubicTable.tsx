@@ -1,3 +1,5 @@
+import { useCubicSolver } from "../hooks/CubicSolver";
+
 export const CubicTable = ({
   p,
   q,
@@ -19,8 +21,6 @@ export const CubicTable = ({
   y2: number | string;
   y3: number | string;
 }) => {
-
-  console.log(p, q, discriminant, x1, x2, x3, y1, y2, y3);
 
   return (
     <section

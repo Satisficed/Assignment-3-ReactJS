@@ -1,15 +1,6 @@
 import { useRef, useEffect } from "react";
 import { useCubicSolver } from "../hooks/CubicSolver.ts";
-
-type CubicGraphProps = {
-  a: number | null;
-  b: number | null;
-  c: number | null;
-  d: number | null;
-  x1?: number | string;
-  x2?: number | string;
-  x3?: number | string;
-};
+import type { CubicGraphProps } from "../core/types.tsx";
 
 export const CubicGraph = ({ a, b, c, d, x1, x2, x3 }: CubicGraphProps) => {
   useEffect(() => {

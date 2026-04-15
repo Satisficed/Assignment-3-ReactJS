@@ -1,11 +1,9 @@
 import { useEffect } from "react";
-import { useHistory } from "../hooks/useHistory";
-
-type SaveCubic = { a: number; b: number; c: number; d: number };
+import type { SaveCubic } from "../core/types";
+import { useHistory } from "../hooks/UseHistory";
 
 export const CubicHistory = (solver: SaveCubic) => {
   const { history } = useHistory();
-  
 
   return (
     <section className="history">
