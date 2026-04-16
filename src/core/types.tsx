@@ -9,8 +9,9 @@ export type CubicGraphProps = {
 };
 
 export type SaveCubic = {
-  a: number;
-  b: number;
-  c: number;
-  d: number;
+  id: number;
+  a: number | null;
+  b: number | null;
+  c: number | null;
+  d: number | null;
 };

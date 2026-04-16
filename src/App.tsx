@@ -65,7 +65,7 @@ export const App = () => {
           </div>
         </section>
         <div>
-          <CubicHistory a={solver.a} b={solver.b} c={solver.c} d={solver.d} />
+          <CubicHistory />
         </div>
       </main>
     </>

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import type { SaveCubic } from "../core/types";
 
-
 export function useHistory() {
   const [history, setHistory] = useState<SaveCubic[]>([]);
 

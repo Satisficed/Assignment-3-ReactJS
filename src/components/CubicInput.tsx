@@ -26,9 +26,9 @@ export const CubicInput = ({
   result,
   handleSubmit,
 }: CubicInputProps) => {
-  
   const allFilled = a !== null && b !== null && c !== null && d !== null;
 
+  
   return (
     <form onSubmit={handleSubmit}>
       <label> a-value: </label>
@@ -65,9 +65,11 @@ export const CubicInput = ({
       />
       <label>Result: </label>
       <input type="text" value={result} readOnly />
-      <button type="submit" disabled={!allFilled}>
-        Save Cubic
-      </button>
+      <div title={allFilled ? "Save Cubic" : "Fill all fields"}>
+        <button type="submit" disabled={!allFilled}>
+          Save Cubic
+        </button>
+      </div>
     </form>
   );
 };
