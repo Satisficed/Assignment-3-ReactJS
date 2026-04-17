@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import type { SaveCubic } from "../core/types";
 
 export const useCubicSolver = () => {
   // Input coefficients for the cubic equation ax^3 + bx^2 + cx + d = 0

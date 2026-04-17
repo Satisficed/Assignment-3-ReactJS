@@ -1,13 +1,8 @@
 import { useMemo } from "react";
+import type { CubicValues } from "../core/types";
 
-type CubicEquationProps = {
-  a: number | null;
-  b: number | null;
-  c: number | null;
-  d: number | null;
-};
 
-export const CubicEquation = ({ a, b, c, d }: CubicEquationProps) => {
+export const CubicEquation = ({ a, b, c, d }: CubicValues) => {
   const equation = useMemo(() => {
     
     // If input values are zero or null, don't push to array string.

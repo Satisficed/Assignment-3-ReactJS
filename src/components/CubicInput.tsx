@@ -1,7 +1,7 @@
 import type { Dispatch, SetStateAction } from "react";
 // https://www.geeksforgeeks.org/reactjs/react-redux-hooks-useselector-and-usedispatch/
 
-export type CubicInputProps = {
+type CubicInputProps = {
   a: number | null;
   setA: Dispatch<SetStateAction<number | null>>;
   b: number | null;
@@ -28,7 +28,6 @@ export const CubicInput = ({
 }: CubicInputProps) => {
   const allFilled = a !== null && b !== null && c !== null && d !== null;
 
-  
   return (
     <form onSubmit={handleSubmit}>
       <label> a-value: </label>
@@ -65,11 +64,9 @@ export const CubicInput = ({
       />
       <label>Result: </label>
       <input type="text" value={result} readOnly />
-      <div title={allFilled ? "Save Cubic" : "Fill all fields"}>
-        <button type="submit" disabled={!allFilled}>
-          Save Cubic
-        </button>
-      </div>
+      <button type="submit" onClick={(e) => !allFilled && e.preventDefault()}>
+        Save Cubic
+      </button>
     </form>
   );
 };
