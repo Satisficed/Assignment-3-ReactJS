@@ -3,6 +3,7 @@ import { useHistory } from "../hooks/UseHistory";
 
 export const CubicHistory = () => {
   const { history } = useHistory();
+  
 
   return (
     <table className="history-table">
@@ -16,13 +17,13 @@ export const CubicHistory = () => {
         </tr>
       </thead>
       <tbody>
-        {history.map((entry: SaveCubic) => (
-          <tr key={entry.id}>
-            <td>{`History${entry.id}`}</td>
-            <td>{entry.a}</td>
-            <td>{entry.b}</td>
-            <td>{entry.c}</td>
-            <td>{entry.d}</td>
+        {history.map((row: SaveCubic) => (
+          <tr key={row.id}>
+            <td>{`History${row.id}`}</td>
+            <td>{row.a}</td>
+            <td>{row.b}</td>
+            <td>{row.c}</td>
+            <td>{row.d}</td>
           </tr>
         ))}
       </tbody>
