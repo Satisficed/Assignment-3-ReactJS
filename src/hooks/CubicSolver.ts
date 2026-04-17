@@ -1,17 +1,18 @@
 import { useState, useEffect } from "react";
 import type { SaveCubic } from "../core/types";
+import { CubicHistory } from "../components/CubicHistory"
 
 export const useCubicSolver = () => {
-  // Input coefficients for the cubic equation ax^3 + bx^2 + cx + d = 0
+  // Input values for the cubic equation
   const [a, setA] = useState<number | null>(null);
   const [b, setB] = useState<number | null>(null);
   const [c, setC] = useState<number | null>(null);
   const [d, setD] = useState<number | null>(null);
 
-  // Text summary shown in the UI
+  // Result changes
   const [result, setResult] = useState("");
 
-  // Depressed cubic coefficients and discriminant 
+  // Depressed cubic and discriminant 
   const [p, setP] = useState(0);
   const [q, setQ] = useState(0);
   const [discriminant, setDiscriminant] = useState(0);
@@ -165,8 +166,11 @@ export const useCubicSolver = () => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    const solution = solveCubic();
-    setResult(solution);
+    // I need to do the history stuff here
+    // const SaveCubic = saveCubic();
+    // setResult(SaveCubic);
+    return{CubicHistory}
+    console.log("Button function")
   };
 
   return {

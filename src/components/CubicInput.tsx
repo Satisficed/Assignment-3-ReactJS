@@ -64,7 +64,7 @@ export const CubicInput = ({
       />
       <label>Result: </label>
       <input type="text" value={result} readOnly />
-      <button type="submit" onClick={(e) => !allFilled && e.preventDefault()}>
+      <button type="submit" onClick={(event) => !allFilled && event.preventDefault()}>
         Save Cubic
       </button>
     </form>
